@@ -50,3 +50,4 @@ def minibatch_parse(sentences, model, batch_size):
 
 
     return dependencies
+

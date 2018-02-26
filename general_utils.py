@@ -111,3 +111,4 @@ def test_all_close(name, actual, expected):
         raise ValueError("{:} failed, expected {:} but value is {:}".format(name, expected, actual))
     else:
         print (name, "passed!")
+

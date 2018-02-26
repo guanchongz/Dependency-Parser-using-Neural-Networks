@@ -18,7 +18,7 @@ class Config(object):
     batch_size = 1024
     n_epochs = 2000
     lr = 0.0005
-
+    l2_rate= 10e-6
 
 class ParserModel(Model):
 
@@ -64,7 +64,7 @@ class ParserModel(Model):
     def add_loss_op(self, pred):
 
         loss=tf.nn.softmax_cross_entropy_with_logits(logits=pred,labels=self.labels_placeholder)
-        loss+= 10e-6 *tf.nn.l2_loss(self.W)
+        loss+= self.config.l2_rate *tf.nn.l2_loss(self.W)
         loss=tf.reduce_mean(loss)
 
         return loss
